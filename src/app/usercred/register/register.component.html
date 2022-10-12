@@ -1,0 +1,37 @@
+
+
+
+<div mat-dialog-content>
+  <form [formGroup]="registerForm">
+    <mat-form-field appearance="outline">
+      <mat-label>UserName</mat-label>
+      <input formControlName="UserName" matInput placeholder="Please Enter your Name">
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input formControlName="Email" matInput placeholder="Please Enter your mail">
+      <span *ngIf="(this.registerForm.get('Email')?.touched || this.registerForm.get('Email')?.dirty) && this.registerForm.get('Email')?.errors">
+        <span *ngIf="(this.registerForm.get('Email')?.errors?.required)" style="color:red">Email is required</span>
+        <span *ngIf="this.registerForm.get('Email')?.errors?.validateEmail" style="color:red">invalid email</span>
+      </span>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input formControlName="Phone" matInput placeholder="Please enter your phone number">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="Password" matInput placeholder="Please enter your Password">
+    </mat-form-field>
+  </form>
+</div>
+
+<div>
+  <button (click)="onRegister()" [disabled]="!this.registerForm.valid">register</button>
+  <div *ngIf="status" class="btn-warning">Registered Successfully</div>
+</div>
+

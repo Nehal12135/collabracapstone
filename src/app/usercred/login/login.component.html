@@ -1,0 +1,26 @@
+
+<mat-card>
+  <mat-card-content>
+    <div>
+      <h3>Login</h3>
+    </div>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter username</mat-label>
+        <input formControlName="UserName" matInput placeholder="Please Enter your Name">
+      </mat-form-field> <br/>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input formControlName="Password" matInput placeholder="Please Enter your password">
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button color="warn" (click)="loginclick()" [disabled]="!this.loginForm.valid">Login</button>
+      </div>
+   <!--  // <div *ngIf="Status" class="p-3 mb-2 bg-secondary text-white">Login Successfully</div>-->
+
+    </form>
+
+</mat-card-content>
+</mat-card>

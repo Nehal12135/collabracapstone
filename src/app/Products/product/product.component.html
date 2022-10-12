@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 card my-2" *ngFor="let data of products">
+      <img [src]="data.imageUrl" style="width:100%; height:300px;">
+      <p><b>Product ID : </b>{{data.productID}}</p>
+      <p><b>Product Name : </b>{{data.productName}}</p>
+      <p><b>Product Price : </b>{{data.productPrice}}</p>
+      <!--<p><button (click)="addtocart(data)">Add to Cart</button></p>-->
+
+      <p><button (click)="adddtoCart(data.productID,data.productName,data.productPrice,data.imageUrl)">Add to Cart</button></p>
+
+    </div>
+  </div>
+</div>
